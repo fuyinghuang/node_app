@@ -8,11 +8,11 @@ app.use(express.static(`${__dirname}/public`));
 app.use('/', express.static(public));
 
 app.get('/', function(req, res) {
-    res.render(path.join(public, 'index.html'));
+    res.sendFile(path.join(public, 'index.html'));
 });
 
 app.get('/about-me', function(req, res) {
-    res.render(path.join(public, 'about.html'));
+    res.sendFile(path.join(public, 'about.html'));
 });
 
 
