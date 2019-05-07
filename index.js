@@ -1,20 +1,16 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
-const path = require('path');
-const public = path.join(__dirname, 'public')
+
 
 app.use(express.static(`${__dirname}/public`));
-app.use('/', express.static(public));
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(public, 'index.html'));
-   
-});
+app.get('/', (req, res) => 
+  res.sendFile(`${__dirname}/public/index.html`));
 
-app.get('/about-me', function(req, res) {
-    res.sendFile(path.join(public, 'about.html'));
-});
+app.get('/about-me', (req, res) => 
+  res.sendFile(`${__dirname}/public/about.html`));
+
 
 // error handler for not existing page
 
